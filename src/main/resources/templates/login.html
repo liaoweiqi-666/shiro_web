@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+    当前认证页面表单编写必须有一定规则，因为当前认证请求经过Shiro 的authc过滤器
+    1，mehtod 必须是post
+    2，action 必须是认证失败的跳转页面
+
+    只有满足上述两个前提，Shiro的表单认证过滤器才认为你在做认证（登录）操作
+
+    此时就会开始认证功能，最终一层层调用MyRealm中的 认证方法
+    doGetAuthenticationInfo
+
+    3.账号密码记住我的表单名称默认有一定规则
+
+    账号： username
+    密码： password
+    记住我： rememberMe
+
+
+
+-->
+
+我是登录页面<br>
+<span style="color: red">[[${errorMsg}]]</span>
+<form th:action="@{/admin/loginError}" method="post">
+    账号：<input  name="username"   required><br>
+    密码：<input type="password" required name="password"><br>
+    记住我：<input type="checkbox" name="rememberMe"><br>
+    <button type="submit">登录</button>
+</form>
+</body>
+</html>
