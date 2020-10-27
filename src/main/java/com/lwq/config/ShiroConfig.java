@@ -247,7 +247,7 @@ public class ShiroConfig {
         System.out.println("ShiroConfig.logoutFilter");
         LogoutFilter logoutFilter = new LogoutFilter();
         logoutFilter.setRedirectUrl("/admin/loginPage");
-
+        System.out.println("hello,shiri web");
         return logoutFilter;
     }
 
